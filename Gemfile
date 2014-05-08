@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'devise'
 gem 'simple_form'
+gem 'activerecord-import'
 
 group :doc do
   gem 'sdoc', require: false

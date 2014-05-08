@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140508003355) do
+ActiveRecord::Schema.define(version: 20140508210614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pokemons", force: true do |t|
+    t.string  "identifier",      null: false
+    t.integer "species_id",      null: false
+    t.integer "height",          null: false
+    t.integer "weight",          null: false
+    t.integer "base_experience", null: false
+    t.integer "order",           null: false
+    t.integer "is_default",      null: false
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

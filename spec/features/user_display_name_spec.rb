@@ -11,6 +11,7 @@ feature 'user chooses display name' do
   # - must not have anything other than /a-zA-Z0-9_-/
 
   let(:user) { FactoryGirl.build(:user) }
+  let(:sign_up) { within(:css, '.form-actions') { click_on 'Sign Up' } }
 
   before :each do
     @prev_count = User.count
@@ -23,7 +24,7 @@ feature 'user chooses display name' do
     fill_in 'user_password', with: user.password
     fill_in 'user_password_confirmation', with: user.password
 
-    click_on 'Sign Up'
+    sign_up
 
     expect(page).to have_content("Welcome! You have signed up successfully. Welcome to Daycare.")
     expect(User.count).to eq(@prev_count + 1)
@@ -37,7 +38,7 @@ feature 'user chooses display name' do
     fill_in 'user_password', with: user.password
     fill_in 'user_password_confirmation', with: user.password
 
-    click_on 'Sign Up'
+    sign_up
 
     expect(page).to have_content("has already been taken")
     expect(User.count).to eq(@prev_count + 1)
@@ -48,7 +49,7 @@ feature 'user chooses display name' do
     fill_in 'user_password', with: user.password
     fill_in 'user_password_confirmation', with: user.password
 
-    click_on 'Sign Up'
+    sign_up
 
     expect(page).to have_content("can't be blank")
     expect(User.count).to eq(@prev_count)
@@ -60,7 +61,7 @@ feature 'user chooses display name' do
     fill_in 'user_password', with: user.password
     fill_in 'user_password_confirmation', with: user.password
 
-    click_on 'Sign Up'
+    sign_up
 
     expect(page).to have_content("is too long")
     expect(User.count).to eq(@prev_count)
@@ -72,7 +73,7 @@ feature 'user chooses display name' do
     fill_in 'user_password', with: user.password
     fill_in 'user_password_confirmation', with: user.password
 
-    click_on 'Sign Up'
+    sign_up
 
     expect(page).to have_content("too short")
     expect(User.count).to eq(@prev_count)
@@ -84,7 +85,7 @@ feature 'user chooses display name' do
     fill_in 'user_password', with: user.password
     fill_in 'user_password_confirmation', with: user.password
 
-    click_on 'Sign Up'
+    sign_up
 
     expect(page).to have_content("is invalid")
     expect(User.count).to eq(@prev_count)

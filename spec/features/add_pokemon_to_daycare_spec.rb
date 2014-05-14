@@ -22,7 +22,7 @@ feature 'user can add a new Pokemon to the Daycare' do
     visit '/daycare/'
 
     fill_in 'Nickname', with: 'Steve'
-    fill_in 'Species', with: 'Bulbasaur'
+    fill_in 'Pokemon', with: 'Bulbasaur'
     fill_in 'Ability', with: 'Overgrow'
     fill_in 'Nature', with: 'Hardy'
     check 'Attack'

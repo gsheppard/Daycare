@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140514193358) do
+ActiveRecord::Schema.define(version: 20140514210331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "abilities", force: true do |t|
+    t.string  "identifier",     null: false
+    t.integer "generation_id",  null: false
+    t.integer "is_main_series", null: false
+  end
 
   create_table "daycare_pokemons", force: true do |t|
     t.string   "nickname",               null: false
@@ -29,6 +35,7 @@ ActiveRecord::Schema.define(version: 20140514193358) do
     t.integer  "spa_iv",     default: 0, null: false
     t.integer  "spd_iv",     default: 0, null: false
     t.integer  "spe_iv",     default: 0, null: false
+    t.integer  "user_id",                null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

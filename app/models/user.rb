@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :daycare_pokemons
+
   validates :display_name,
     presence: true,
     uniqueness: true,

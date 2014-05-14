@@ -7,4 +7,6 @@ describe User do
     "five5", "twenty_five_characters_25", "dashes-123")}
   it { should_not have_valid(:display_name).when(
     "shrt", "twenty_six_characters_26_0", "abc$123", "abc'123")}
+
+  it { should have_many :daycare_pokemons }
 end

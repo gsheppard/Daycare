@@ -4,7 +4,10 @@
       <%= f.input :nickname, label: false, placeholder: 'Nickname' %>
     </div>
     <div class="col-sm-2">
-      <%= f.association :pokemon, label: false, placeholder: 'Pokemon' %>
+      <%= f.association :pokemon, as: :string, label: false, placeholder: 'Pokemon' %>
+    </div>
+    <div class="col-sm-2">
+      <%= f.association :ability, as: :string, label: false, placeholder: 'Ability' %>
     </div>
     <div class="col-sm-2">
       <%= f.button :submit, 'New', class: 'btn btn-success' %>

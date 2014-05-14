@@ -13,6 +13,7 @@ class CreateDaycarePokemon < ActiveRecord::Migration
       t.integer :spa_iv,          null: false, default: false
       t.integer :spd_iv,          null: false, default: false
       t.integer :spe_iv,          null: false, default: false
+      t.references :user,         null: false
 
       t.timestamps
     end

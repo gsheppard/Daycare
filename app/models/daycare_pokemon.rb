@@ -1,4 +1,5 @@
 class DaycarePokemon < ActiveRecord::Base
+  belongs_to :user
   belongs_to :pokemon
   belongs_to :ability
   belongs_to :nature

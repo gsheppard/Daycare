@@ -1,0 +1,8 @@
+$(function() {
+  var availableTags =
+    <%= Pokemon.all.map { |p| p.identifier.capitalize } %>
+  ;
+  $( "#daycare_pokemon_pokemon_id" ).autocomplete({
+    source: availableTags
+  });
+});

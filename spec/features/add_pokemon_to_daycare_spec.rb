@@ -21,8 +21,6 @@ feature 'user can add a new Pokemon to the Daycare' do
   scenario 'create valid Daycare Pokemon' do
     visit '/daycare/'
 
-    click_on 'New'
-
     fill_in 'Nickname', with: 'Steve'
     fill_in 'Species', with: 'Bulbasaur'
     fill_in 'Ability', with: 'Overgrow'
@@ -36,7 +34,7 @@ feature 'user can add a new Pokemon to the Daycare' do
     fill_in 'Move 4', with: 'Skull Bash'
     choose 'Male'
 
-    click_on 'Add'
+    click_on 'New'
 
     expect(user.daycare_pokemon.count).to eq(1)
   end

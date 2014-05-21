@@ -1,8 +1,17 @@
 $(function() {
-  var availableTags =
-    <%= Pokemon.all.map { |p| p.identifier.capitalize } %>
-  ;
-  $( "#daycare_pokemon_pokemon_id" ).autocomplete({
-    source: availableTags
+  var pokemonTags = <%= Pokemon.all.map { |p| p.identifier.capitalize } %>;
+  var abilityTags = <%= Ability.all.map { |a| a.identifier.capitalize } %>;
+  var natureTags = <%= Nature.all.map { |n| n.identifier.capitalize } %>;
+
+  $("#daycare_pokemon_pokemon_id").autocomplete({
+    source: pokemonTags
+  });
+
+  $("#daycare_pokemon_ability_id").autocomplete({
+    source: abilityTags
+  });
+
+  $("#daycare_pokemon_nature_id").autocomplete({
+    source: natureTags
   });
 });

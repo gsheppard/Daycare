@@ -10,6 +10,9 @@
       <%= f.association :ability, as: :string, label: false, placeholder: 'Ability' %>
     </div>
     <div class="col-sm-2">
+      <%= f.association :nature, as: :string, label: false, placeholder: 'Nature' %>
+    </div>
+    <div class="col-sm-2">
       <%= f.button :submit, 'New', class: 'btn btn-success' %>
     </div>
   <% end %>

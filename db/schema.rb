@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20140514231100) do
     t.integer  "ability_id",             null: false
     t.integer  "nature_id",              null: false
     t.integer  "moveset_id",             null: false
-    t.integer  "gender_id",              null: false
+    t.integer  "gender",                 null: false
     t.integer  "hp_iv",      default: 0, null: false
     t.integer  "atk_iv",     default: 0, null: false
     t.integer  "def_iv",     default: 0, null: false

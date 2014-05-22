@@ -6,7 +6,7 @@ class CreateDaycarePokemon < ActiveRecord::Migration
       t.references :ability,      null: false
       t.references :nature,       null: false
       t.references :moveset,      null: false
-      t.references :gender,       null: false
+      t.integer :gender,          null: false
       t.integer :hp_iv,           null: false, default: false
       t.integer :atk_iv,          null: false, default: false
       t.integer :def_iv,          null: false, default: false

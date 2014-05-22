@@ -1,19 +1,40 @@
-<div class="row">
-  <%= simple_form_for @daycare_pokemon do |f| %>
+<%= simple_form_for @daycare_pokemon do |f| %>
+  <div class="row">
     <div class="col-sm-2">
       <%= f.input :nickname, label: false, placeholder: 'Nickname' %>
-    </div>
-    <div class="col-sm-2">
       <%= f.association :pokemon, as: :string, label: false, placeholder: 'Pokemon' %>
-    </div>
-    <div class="col-sm-2">
       <%= f.association :ability, as: :string, label: false, placeholder: 'Ability' %>
-    </div>
-    <div class="col-sm-2">
       <%= f.association :nature, as: :string, label: false, placeholder: 'Nature' %>
     </div>
     <div class="col-sm-2">
+      <%= simple_fields_for :moveset do |m| %>
+        <%= m.input :move1, label: false, placeholder: "Move 1" %>
+        <%= m.input :move2, label: false, placeholder: "Move 2" %>
+        <%= m.input :move3, label: false, placeholder: "Move 3" %>
+        <%= m.input :move4, label: false, placeholder: "Move 4" %>
+      <% end %>
+    </div>
+    <div class="col-sm-3">
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.input :hp_iv, as: :boolean, label: "HP" %>
+          <%= f.input :atk_iv, as: :boolean, label: "ATK" %>
+          <%= f.input :def_iv, as: :boolean, label: "DEF" %>
+        </div>
+        <div class="col-sm-6">
+          <%= f.input :spe_iv, as: :boolean, label: "SPE" %>
+          <%= f.input :spa_iv, as: :boolean, label: "SPA" %>
+          <%= f.input :spd_iv, as: :boolean, label: "SPD" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <%= f.input :gender, collection: ["Male", "Female", "Genderless"], as: :radio_buttons, label: false %>
+    </div>
+
+    <div class="col-sm-2">
       <%= f.button :submit, 'New', class: 'btn btn-success' %>
     </div>
-  <% end %>
-</div>
+  </div>
+
+<% end %>

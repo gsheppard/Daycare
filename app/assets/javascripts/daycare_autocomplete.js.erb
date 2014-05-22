@@ -1,7 +1,7 @@
 $(function() {
-  var pokemonTags = <%= Pokemon.all.map { |p| p.identifier.capitalize } %>;
-  var abilityTags = <%= Ability.all.map { |a| a.identifier.capitalize } %>;
-  var natureTags = <%= Nature.all.map { |n| n.identifier.capitalize } %>;
+  var pokemonTags = <%= Pokemon.all.map { |p| p.identifier.titleize } %>;
+  var abilityTags = <%= Ability.all.map { |a| a.identifier.titleize } %>;
+  var natureTags = <%= Nature.all.map { |n| n.identifier.titleize } %>;
 
   $("#daycare_pokemon_pokemon_id").autocomplete({
     source: pokemonTags

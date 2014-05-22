@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20140514231100) do
     t.integer  "pokemon_id",             null: false
     t.integer  "ability_id",             null: false
     t.integer  "nature_id",              null: false
-    t.integer  "moveset_id",             null: false
     t.integer  "gender",                 null: false
     t.integer  "hp_iv",      default: 0, null: false
     t.integer  "atk_iv",     default: 0, null: false
@@ -35,6 +34,10 @@ ActiveRecord::Schema.define(version: 20140514231100) do
     t.integer  "spa_iv",     default: 0, null: false
     t.integer  "spd_iv",     default: 0, null: false
     t.integer  "spe_iv",     default: 0, null: false
+    t.integer  "move1"
+    t.integer  "move2"
+    t.integer  "move3"
+    t.integer  "move4"
     t.integer  "user_id",                null: false
     t.datetime "created_at"
     t.datetime "updated_at"

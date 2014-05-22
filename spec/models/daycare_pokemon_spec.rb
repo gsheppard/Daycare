@@ -15,6 +15,5 @@ describe DaycarePokemon do
   it { should belong_to :pokemon }
   it { should belong_to :ability }
   it { should belong_to :nature }
-  it { should belong_to :moveset }
 
 end

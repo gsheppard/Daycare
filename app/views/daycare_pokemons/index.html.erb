@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="col-sm-2">
-      <%= f.input :gender, collection: ["Male", "Female", "Genderless"], as: :radio_buttons, label: false %>
+      <%= f.input :gender, collection: @genders, label_method: lambda{|l| l[:label]}, value_method: lambda{|l| l[:value]}, as: :radio_buttons, label: false %>
     </div>
 
     <div class="col-sm-2">

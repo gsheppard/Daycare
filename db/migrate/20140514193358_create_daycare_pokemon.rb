@@ -7,12 +7,12 @@ class CreateDaycarePokemon < ActiveRecord::Migration
       t.references :nature,       null: false
       t.integer :gender,          null: false
 
-      t.integer :hp_iv,           null: false, default: false
-      t.integer :atk_iv,          null: false, default: false
-      t.integer :def_iv,          null: false, default: false
-      t.integer :spa_iv,          null: false, default: false
-      t.integer :spd_iv,          null: false, default: false
-      t.integer :spe_iv,          null: false, default: false
+      t.boolean :hp_iv,           null: false, default: false
+      t.boolean :atk_iv,          null: false, default: false
+      t.boolean :def_iv,          null: false, default: false
+      t.boolean :spa_iv,          null: false, default: false
+      t.boolean :spd_iv,          null: false, default: false
+      t.boolean :spe_iv,          null: false, default: false
 
       t.integer :move1
       t.integer :move2

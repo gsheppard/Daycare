@@ -23,22 +23,22 @@ ActiveRecord::Schema.define(version: 20140522233018) do
   end
 
   create_table "daycare_pokemons", force: true do |t|
-    t.string   "nickname",               null: false
-    t.integer  "pokemon_id",             null: false
-    t.integer  "ability_id",             null: false
-    t.integer  "nature_id",              null: false
-    t.integer  "gender",                 null: false
-    t.integer  "hp_iv",      default: 0, null: false
-    t.integer  "atk_iv",     default: 0, null: false
-    t.integer  "def_iv",     default: 0, null: false
-    t.integer  "spa_iv",     default: 0, null: false
-    t.integer  "spd_iv",     default: 0, null: false
-    t.integer  "spe_iv",     default: 0, null: false
+    t.string   "nickname",                   null: false
+    t.integer  "pokemon_id",                 null: false
+    t.integer  "ability_id",                 null: false
+    t.integer  "nature_id",                  null: false
+    t.integer  "gender",                     null: false
+    t.boolean  "hp_iv",      default: false, null: false
+    t.boolean  "atk_iv",     default: false, null: false
+    t.boolean  "def_iv",     default: false, null: false
+    t.boolean  "spa_iv",     default: false, null: false
+    t.boolean  "spd_iv",     default: false, null: false
+    t.boolean  "spe_iv",     default: false, null: false
     t.integer  "move1"
     t.integer  "move2"
     t.integer  "move3"
     t.integer  "move4"
-    t.integer  "user_id",                null: false
+    t.integer  "user_id",                    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

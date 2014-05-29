@@ -10,7 +10,6 @@
       <%= f.hidden_field :pokemon_id %>
       <%= f.hidden_field :ability_id %>
       <%= f.hidden_field :nature_id %>
-
     </div>
     <div class="col-sm-2">
       <%= simple_fields_for :moveset do |m| %>
@@ -29,19 +28,25 @@
     <div class="col-sm-3">
       <div class="row">
         <div class="col-sm-6">
-          <%= f.input :hp_iv, as: :boolean, label: "HP" %>
-          <%= f.input :atk_iv, as: :boolean, label: "ATK" %>
-          <%= f.input :def_iv, as: :boolean, label: "DEF" %>
+          <%= f.input :hp_iv, as: :boolean, checked_value: true, unchecked_value: false, label: "HP" %>
+          <%= f.input :atk_iv, as: :boolean, checked_value: true, unchecked_value: false, label: "ATK" %>
+          <%= f.input :def_iv, as: :boolean, checked_value: true, unchecked_value: false, label: "DEF" %>
         </div>
         <div class="col-sm-6">
-          <%= f.input :spe_iv, as: :boolean, label: "SPE" %>
-          <%= f.input :spa_iv, as: :boolean, label: "SPA" %>
-          <%= f.input :spd_iv, as: :boolean, label: "SPD" %>
+          <%= f.input :spe_iv, as: :boolean, checked_value: true, unchecked_value: false, label: "SPE" %>
+          <%= f.input :spa_iv, as: :boolean, checked_value: true, unchecked_value: false, label: "SPA" %>
+          <%= f.input :spd_iv, as: :boolean, checked_value: true, unchecked_value: false, label: "SPD" %>
         </div>
       </div>
     </div>
     <div class="col-sm-2">
-      <%= f.input :gender, collection: @genders, label_method: lambda{|l| l[:label]}, value_method: lambda{|l| l[:value]}, as: :radio_buttons, label: false %>
+      <%= f.input :gender,
+                  collection: @genders,
+                  label_method: lambda{|l| l[:label]},
+                  value_method: lambda{|l| l[:value]},
+                  as: :radio_buttons,
+                  label: false
+      %>
     </div>
 
     <div class="col-sm-2">

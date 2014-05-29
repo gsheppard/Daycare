@@ -7,6 +7,12 @@ class DaycarePokemonsController < ApplicationController
   def create
     @daycare_pokemon = DaycarePokemon.new(daycare_pokemon_params)
 
+    if @daycare_pokemon.save
+      flash[:notice] = "It worked"
+    else
+      flash[:alert] = "It didn't work"
+    end
+
     redirect_to daycare_pokemons_path
   end
 

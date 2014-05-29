@@ -1,17 +1,29 @@
 $(function() {
-  var pokemonTags = <%= Pokemon.all.map { |p| p.identifier.titleize } %>;
-  var abilityTags = <%= Ability.all.map { |a| a.identifier.titleize } %>;
-  var natureTags = <%= Nature.all.map { |n| n.identifier.titleize } %>;
+  var pokemonTags = <%= Pokemon.all.map { |p| { label: p.identifier.titleize, value: p.id } }.to_json %>;
+  var abilityTags = <%= Ability.all.map { |a| { label: a.identifier.titleize, value: a.id } }.to_json %>;
+  var natureTags = <%= Nature.all.map { |n| { label: n.identifier.titleize, value: n.id } }.to_json %>;
+  var moveTags = <%= Move.all.map { |m| { label: m.identifier.titleize, value: m.id } }.to_json %>;
 
-  $("#daycare_pokemon_pokemon_id").autocomplete({
-    source: pokemonTags
-  });
+  function daycareAutocomplete( formLabelId, formValueId, tags ) {
+    $( formLabelId ).autocomplete({
+      source: tags,
+      focus: function( event, ui ) {
+        $( formLabelId ).val( ui.item.label );
+        return false;
+      },
+      select: function( event, ui ) {
+        $( formValueId ).val( ui.item.value );
+        return false;
+      }
+    });
+  }
 
-  $("#daycare_pokemon_ability_id").autocomplete({
-    source: abilityTags
-  });
+  daycareAutocomplete("#daycare_pokemon_pokemon", "#daycare_pokemon_pokemon_id", pokemonTags);
+  daycareAutocomplete("#daycare_pokemon_ability", "#daycare_pokemon_ability_id", abilityTags);
+  daycareAutocomplete("#daycare_pokemon_nature", "#daycare_pokemon_nature_id", natureTags);
 
-  $("#daycare_pokemon_nature_id").autocomplete({
-    source: natureTags
-  });
+  for(var i = 1; i <= 4; i++){
+    daycareAutocomplete("#moveset_move" + i, "#daycare_pokemon_move" + i, moveTags);
+  }
+
 });

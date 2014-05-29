@@ -36,7 +36,7 @@ feature 'user can add a new Pokemon to the Daycare' do
 
     click_on 'New'
 
-    expect(user.daycare_pokemon.count).to eq(1)
+    expect(user.daycare_pokemons.count).to eq(1)
   end
 
 end

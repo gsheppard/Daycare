@@ -2,9 +2,15 @@
   <div class="row">
     <div class="col-sm-2">
       <%= f.input :nickname, label: false, placeholder: 'Nickname' %>
-      <%= f.association :pokemon, as: :string, label: false, placeholder: 'Pokemon' %>
-      <%= f.association :ability, as: :string, label: false, placeholder: 'Ability' %>
-      <%= f.association :nature, as: :string, label: false, placeholder: 'Nature' %>
+      <%= f.input :pokemon, as: :string, label: false, placeholder: 'Pokemon' %>
+      <%= f.input :ability, as: :string, label: false, placeholder: 'Ability' %>
+      <%= f.input :nature, as: :string, label: false, placeholder: 'Nature' %>
+
+      <!-- Hidden Fields -->
+      <%= f.hidden_field :pokemon_id %>
+      <%= f.hidden_field :ability_id %>
+      <%= f.hidden_field :nature_id %>
+
     </div>
     <div class="col-sm-2">
       <%= simple_fields_for :moveset do |m| %>
@@ -13,6 +19,12 @@
         <%= m.input :move3, label: false, placeholder: "Move 3" %>
         <%= m.input :move4, label: false, placeholder: "Move 4" %>
       <% end %>
+
+      <!-- Hidden Fields -->
+      <%= f.hidden_field :move1 %>
+      <%= f.hidden_field :move2 %>
+      <%= f.hidden_field :move3 %>
+      <%= f.hidden_field :move4 %>
     </div>
     <div class="col-sm-3">
       <div class="row">

@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 20140522233018) do
     t.boolean  "spa_iv",     default: false, null: false
     t.boolean  "spd_iv",     default: false, null: false
     t.boolean  "spe_iv",     default: false, null: false
-    t.integer  "move1"
-    t.integer  "move2"
-    t.integer  "move3"
-    t.integer  "move4"
+    t.integer  "move1_id"
+    t.integer  "move2_id"
+    t.integer  "move3_id"
+    t.integer  "move4_id"
     t.integer  "user_id",                    null: false
     t.datetime "created_at"
     t.datetime "updated_at"

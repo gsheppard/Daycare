@@ -1,29 +1,16 @@
 <%= simple_form_for @daycare_pokemon do |f| %>
   <div class="row">
     <div class="col-sm-2">
-      <%= f.input :nickname, label: false, placeholder: 'Nickname' %>
-      <%= f.input :pokemon, as: :string, label: false, placeholder: 'Pokemon' %>
-      <%= f.input :ability, as: :string, label: false, placeholder: 'Ability' %>
-      <%= f.input :nature, as: :string, label: false, placeholder: 'Nature' %>
-
-      <!-- Hidden Fields -->
-      <%= f.hidden_field :pokemon_id %>
-      <%= f.hidden_field :ability_id %>
-      <%= f.hidden_field :nature_id %>
+      <%= f.input :nickname %>
+      <%= f.association :pokemon, label_method: lambda{|l| l.identifier.titleize }, value_method: :id %>
+      <%= f.association :ability, label_method: lambda{|l| l.identifier.titleize }, value_method: :id %>
+      <%= f.association :nature, label_method: lambda{|l| l.identifier.titleize }, value_method: :id %>
     </div>
     <div class="col-sm-2">
-      <%= simple_fields_for :moveset do |m| %>
-        <%= m.input :move1, label: false, placeholder: "Move 1" %>
-        <%= m.input :move2, label: false, placeholder: "Move 2" %>
-        <%= m.input :move3, label: false, placeholder: "Move 3" %>
-        <%= m.input :move4, label: false, placeholder: "Move 4" %>
-      <% end %>
-
-      <!-- Hidden Fields -->
-      <%= f.hidden_field :move1 %>
-      <%= f.hidden_field :move2 %>
-      <%= f.hidden_field :move3 %>
-      <%= f.hidden_field :move4 %>
+      <%= f.association :move1, label_method: lambda{|l| l.identifier.titleize } %>
+      <%= f.association :move2, label_method: lambda{|l| l.identifier.titleize } %>
+      <%= f.association :move3, label_method: lambda{|l| l.identifier.titleize } %>
+      <%= f.association :move4, label_method: lambda{|l| l.identifier.titleize } %>
     </div>
     <div class="col-sm-3">
       <div class="row">
@@ -31,8 +18,6 @@
           <%= f.input :hp_iv, as: :boolean, checked_value: true, unchecked_value: false, label: "HP" %>
           <%= f.input :atk_iv, as: :boolean, checked_value: true, unchecked_value: false, label: "ATK" %>
           <%= f.input :def_iv, as: :boolean, checked_value: true, unchecked_value: false, label: "DEF" %>
-        </div>
-        <div class="col-sm-6">
           <%= f.input :spe_iv, as: :boolean, checked_value: true, unchecked_value: false, label: "SPE" %>
           <%= f.input :spa_iv, as: :boolean, checked_value: true, unchecked_value: false, label: "SPA" %>
           <%= f.input :spd_iv, as: :boolean, checked_value: true, unchecked_value: false, label: "SPD" %>

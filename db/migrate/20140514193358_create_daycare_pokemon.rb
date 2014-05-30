@@ -14,10 +14,10 @@ class CreateDaycarePokemon < ActiveRecord::Migration
       t.boolean :spd_iv,          null: false, default: false
       t.boolean :spe_iv,          null: false, default: false
 
-      t.integer :move1
-      t.integer :move2
-      t.integer :move3
-      t.integer :move4
+      t.integer :move1_id
+      t.integer :move2_id
+      t.integer :move3_id
+      t.integer :move4_id
 
       t.references :user,         null: false
 

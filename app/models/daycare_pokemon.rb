@@ -4,6 +4,11 @@ class DaycarePokemon < ActiveRecord::Base
   belongs_to :ability
   belongs_to :nature
 
+  belongs_to :move1, class_name: "Move", foreign_key: "move1_id", primary_key: "id"
+  belongs_to :move2, class_name: "Move", foreign_key: "move2_id", primary_key: "id"
+  belongs_to :move3, class_name: "Move", foreign_key: "move3_id", primary_key: "id"
+  belongs_to :move4, class_name: "Move", foreign_key: "move4_id", primary_key: "id"
+
   validates_presence_of :nickname, :pokemon,
     :ability, :nature, :gender
 

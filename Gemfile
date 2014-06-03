@@ -32,4 +32,5 @@ group :test do
   gem 'shoulda'
   gem 'valid_attribute'
   gem 'selenium-webdriver'
+  gem 'poltergeist'
 end

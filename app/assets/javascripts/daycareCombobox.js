@@ -13,11 +13,13 @@
     _createAutocomplete: function() {
       var selected = this.element.children( ":selected" ),
         value = selected.val() ? selected.text() : "";
+      var inputId = this.element.attr( 'id' ).replace('daycare_pokemon_', '') + "_input";
 
       this.input = $( "<input>" )
         .appendTo( this.wrapper )
         .val( value )
         .attr( "title", "" )
+        .attr( "id", inputId )
         .autocomplete({
           delay: 0,
           minLength: 0,

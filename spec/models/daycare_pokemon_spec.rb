@@ -3,12 +3,6 @@ require 'spec_helper'
 describe DaycarePokemon do
 
   it { should validate_presence_of :nickname }
-  it { should validate_presence_of :hp_iv }
-  it { should validate_presence_of :atk_iv }
-  it { should validate_presence_of :def_iv }
-  it { should validate_presence_of :spa_iv }
-  it { should validate_presence_of :spd_iv }
-  it { should validate_presence_of :spe_iv }
 
   it { should belong_to :user }
 

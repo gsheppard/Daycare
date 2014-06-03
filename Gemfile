@@ -31,4 +31,5 @@ group :test do
   gem 'launchy'
   gem 'shoulda'
   gem 'valid_attribute'
+  gem 'selenium-webdriver'
 end

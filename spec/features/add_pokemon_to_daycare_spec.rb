@@ -12,26 +12,36 @@ feature 'user can add a new Pokemon to the Daycare' do
   # - Moveset (4 moves)
   # - Gender
 
+  def fill_autocomplete(field, options = {})
+    fill_in field, with: options[:with]
+
+    page.execute_script %Q{ $('##{field}').trigger('focus') }
+    page.execute_script %Q{ $('##{field}').trigger('keydown') }
+    selector = %Q{select#daycare_pokemon_#{field.gsub('_input', '')} a:contains("#{options[:with]}")}
+
+    # page.execute_script %Q{ $('#{selector}').trigger('mouseenter').click() }
+  end
+
   let(:user) { FactoryGirl.create(:user) }
 
   before :each do
     sign_in_as(user)
   end
 
-  scenario 'create valid Daycare Pokemon' do
+  scenario 'create valid Daycare Pokemon', js: true do
     visit '/daycare/'
 
     fill_in 'Nickname', with: 'Steve'
-    fill_in 'Pokemon', with: 'Bulbasaur'
-    fill_in 'Ability', with: 'Overgrow'
-    fill_in 'Nature', with: 'Hardy'
+    fill_autocomplete 'pokemon_id_input', with: 'Bulbasaur'
+    fill_autocomplete 'ability_id_input', with: 'Overgrow'
+    fill_autocomplete 'nature_id_input', with: 'Hardy'
     check 'ATK'
     check 'DEF'
     check 'SPE'
-    fill_in 'Move 1', with: 'Leaf Storm'
-    fill_in 'Move 2', with: 'Grassy Terrain'
-    fill_in 'Move 3', with: 'Petal Dance'
-    fill_in 'Move 4', with: 'Skull Bash'
+    fill_autocomplete 'move1_id_input', with: 'Leaf Storm'
+    fill_autocomplete 'move2_id_input', with: 'Grassy Terrain'
+    fill_autocomplete 'move3_id_input', with: 'Petal Dance'
+    fill_autocomplete 'move4_id_input', with: 'Skull Bash'
     choose 'Male'
 
     click_on 'New'

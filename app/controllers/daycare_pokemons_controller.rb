@@ -2,6 +2,8 @@ class DaycarePokemonsController < ApplicationController
   def index
     @daycare_pokemon = DaycarePokemon.new
     @genders = [{label: "Genderless", value: 0}, {label: "Male", value: 1}, {label: "Female", value: 2}]
+
+    @daycare_pokemons = DaycarePokemon.where(user: current_user)
   end
 
   def create

@@ -13,4 +13,15 @@ class DaycarePokemon < ActiveRecord::Base
     :ability, :nature, :gender
 
   validates :gender, inclusion: 0..2, numericality: { only_integer: true }
+
+  def gender_word
+    case self.gender
+    when 0
+      'Genderless'
+    when 1
+      'Male'
+    when 2
+      'Female'
+    end
+  end
 end

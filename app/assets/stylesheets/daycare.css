@@ -11,3 +11,16 @@
   background-color: #F2DEDE;
   height: 15px;
 }
+
+#new_daycare_pokemon {
+  display: none;
+}
+
+#daycare_form_show {
+  cursor: pointer;
+}
+
+#daycare_form_hide {
+  cursor: pointer;
+  display: none;
+}

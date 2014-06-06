@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container panel panel-default">
   <div class="row bold">
-    <div class="col-sm-2">Model</div>
+    <div class="col-sm-1">Model</div>
     <div class="col-sm-1">Nickname</div>
-    <div class="col-sm-1">Species</div>
+    <div class="col-sm-2">Species</div>
     <div class="col-sm-1">HP</div>
     <div class="col-sm-1">ATK</div>
     <div class="col-sm-1">DEF</div>
@@ -14,41 +14,17 @@
 
   <% @daycare_pokemons.each do |pokemon| %>
     <div class="row">
-      <div class="col-sm-2">
-        Image here
+      <div class="col-sm-1">
+        <%= image_tag '/assets/emolga.gif' %>
       </div>
       <div class="col-sm-1"><%= pokemon.nickname.titleize %></div>
-      <div class="col-sm-1"><%= pokemon.pokemon.identifier.titleize %></div>
-      <!-- Start IV Spread -->
+      <div class="col-sm-2"><%= pokemon.pokemon.identifier.titleize %></div>
       <div class="col-sm-1 <%= iv_helper(pokemon.hp_iv) %>"></div>
       <div class="col-sm-1 <%= iv_helper(pokemon.atk_iv) %>"></div>
       <div class="col-sm-1 <%= iv_helper(pokemon.def_iv) %>"></div>
       <div class="col-sm-1 <%= iv_helper(pokemon.spa_iv) %>"></div>
       <div class="col-sm-1 <%= iv_helper(pokemon.spd_iv) %>"></div>
       <div class="col-sm-1 <%= iv_helper(pokemon.spe_iv) %>"></div>
-
-
-
-<!--         <div class="row">
-          <div class="col-sm-2"><% if pokemon.hp_iv %>HP<% end %></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-2"><% if pokemon.atk_iv %>ATK<% end %></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-2"><% if pokemon.def_iv %>DEF<% end %></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-2"><% if pokemon.spa_iv %>SPA<% end %></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-2"><% if pokemon.spd_iv %>SPD<% end %></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-2"><% if pokemon.spe_iv %>SPE<% end %></div>
-        </div>
-      </div> -->
-      <!-- End IV spread -->
 
       <div class="col-sm-2"><%= pokemon.gender_word %></div>
     </div>

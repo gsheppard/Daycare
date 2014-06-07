@@ -15,7 +15,7 @@ class DaycarePokemon < ActiveRecord::Base
   validates :gender, inclusion: 0..2, numericality: { only_integer: true }
 
   def gender_word
-    case self.gender
+    case gender
     when 0
       'Genderless'
     when 1
@@ -23,5 +23,20 @@ class DaycarePokemon < ActiveRecord::Base
     when 2
       'Female'
     end
+  end
+
+  def moveset
+    [move1, move2, move3, move4]
+  end
+
+  def iv_spread
+    {
+      hp: hp_iv,
+      atk: atk_iv,
+      def: def_iv,
+      spa: spa_iv,
+      spd: spd_iv,
+      spe: spe_iv
+    }
   end
 end

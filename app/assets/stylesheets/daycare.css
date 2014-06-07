@@ -24,3 +24,11 @@
   cursor: pointer;
   display: none;
 }
+
+#pokemon_list {
+  font-size: 1.5em;
+}
+
+#moveset td {
+  width: 25%;
+}

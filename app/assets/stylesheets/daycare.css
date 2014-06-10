@@ -26,9 +26,13 @@
 }
 
 #pokemon_list {
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 #moveset td {
   width: 25%;
+}
+
+#iv_spread td {
+  width: 10%;
 }

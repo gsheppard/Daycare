@@ -3,41 +3,44 @@
 
     <div class="row">
       <div class="col-xs-3">
-        <%= image_tag '/assets/emolga.gif', width: 175 %>
+        <%= image_tag '/assets/emolga.gif', width: 75 %>
       </div>
 
       <div class="col-xs-9">
-        <div><%= pokemon.nickname %> the <%= pokemon.pokemon.identifier.titleize %></div>
+        <div>Nickname: <%= pokemon.nickname %></div>
+        <div>Species: <%= pokemon.pokemon.identifier.titleize %></div>
         <div>Ability: <%= pokemon.ability.identifier.titleize %></div>
         <div>Nature: <%= pokemon.nature.identifier.titleize %></div>
-        <div>
-          <table class="table table-condensed">
-            <thead class="text-center">
-              <td>HP</td>
-              <td>ATK</td>
-              <td>DEF</td>
-              <td>SPA</td>
-              <td>SPD</td>
-              <td>SPE</td>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td class="<%= iv_helper(pokemon.hp_iv) %>"></td>
-                <td class="<%= iv_helper(pokemon.atk_iv) %>"></td>
-                <td class="<%= iv_helper(pokemon.def_iv) %>"></td>
-                <td class="<%= iv_helper(pokemon.spa_iv) %>"></td>
-                <td class="<%= iv_helper(pokemon.spd_iv) %>"></td>
-                <td class="<%= iv_helper(pokemon.spe_iv) %>"></td>
-              </tr>
-            </tbody>
-
-          </table>
-        </div>
       </div>
     </div>
 
     <div class="row text-center">
+      <table class="table table-condensed" id="iv_spread">
+        <thead class="text-center">
+          <td colspan="6">IV Spread</td>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>HP</td>
+            <td>ATK</td>
+            <td>DEF</td>
+            <td>SPA</td>
+            <td>SPD</td>
+            <td>SPE</td>
+          </tr>
+          <tr>
+            <td class="<%= iv_helper(pokemon.hp_iv) %>"></td>
+            <td class="<%= iv_helper(pokemon.atk_iv) %>"></td>
+            <td class="<%= iv_helper(pokemon.def_iv) %>"></td>
+            <td class="<%= iv_helper(pokemon.spa_iv) %>"></td>
+            <td class="<%= iv_helper(pokemon.spd_iv) %>"></td>
+            <td class="<%= iv_helper(pokemon.spe_iv) %>"></td>
+          </tr>
+        </tbody>
+
+      </table>
+
       <table class="table table-condensed" id="moveset">
         <thead>
           <td colspan="4">Moveset</td>

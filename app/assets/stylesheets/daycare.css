@@ -36,3 +36,17 @@
 #iv_spread td {
   width: 10%;
 }
+
+#daycare_pokemon_general_info label, #daycare_pokemon_moveset label {
+  display: none;
+}
+
+#daycare_pokemon_general_info, #daycare_pokemon_moveset {
+  margin: auto 0;
+}
+
+#daycare_pokemon_general_info input, #daycare_pokemon_moveset input {
+  font-size: 1.2em;
+  height: 40px;
+  width: 80%;
+}

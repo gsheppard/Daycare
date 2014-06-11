@@ -13,13 +13,16 @@
     _createAutocomplete: function() {
       var selected = this.element.children( ":selected" ),
         value = selected.val() ? selected.text() : "";
-      var inputId = this.element.attr( 'id' ).replace('daycare_pokemon_', '') + "_input";
+      var baseId = this.element.attr( 'id' ).replace('daycare_pokemon_', '')
+      var inputId = baseId + "_input";
+      var placeholder = baseId.replace('_id', '')
 
       this.input = $( "<input>" )
         .appendTo( this.wrapper )
         .val( value )
         .attr( "title", "" )
         .attr( "id", inputId )
+        .attr( "placeholder", placeholder)
         .autocomplete({
           delay: 0,
           minLength: 0,
@@ -131,9 +134,6 @@
 
 $(function() {
   $( "#daycare_pokemon_pokemon_id" ).combobox();
-  $( "#toggle" ).click(function() {
-    $( "#combobox" ).toggle();
-  });
 });
 
 $(function() {
